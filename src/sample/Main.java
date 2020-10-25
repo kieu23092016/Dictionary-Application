@@ -49,8 +49,8 @@ public class Main extends Application {
     private ObservableList<String> searchList = FXCollections.observableList(new ArrayList<String>());
 
     private static final String SPLITTING_CHARACTERS = "<html>";
-    private static final String DATA_FILE_PATH = "C:\\Users\\ASUS\\IdeaProjects\\WebDic\\WebDic\\src\\file\\E_V.txt";
-    private static final String EXPORT_FILE_PATH = "C:\\Users\\ASUS\\IdeaProjects\\WebDic\\WebDic\\src\\file\\download.txt";
+    private static final String DATA_FILE_PATH = "D:\\dictionaryLast\\Dictionary\\src\\file\\E_V.txt";
+    private static final String EXPORT_FILE_PATH = "D:\\dictionaryLast\\Dictionary\\src\\file\\download.txt";
 
     private static Stage editStage = new Stage();
     private static Stage addStage = new Stage();
@@ -145,37 +145,28 @@ public class Main extends Application {
                 observableList.clear();
             }
             String textSearch = newValue;
-            System.out.println("TU CAN TIM DAY: "+textSearch+"\n Old value is: "+oldValue);
             if (textSearch == null || textSearch.isEmpty()) {
-                System.out.println("null"+" " + searchList.size());
                 if (!searchList.isEmpty()) {
                     searchList.clear();
-                    System.out.println("sau khi clear o doan null: "+searchList.size());
                 }
                 return;
             }
             Pattern pattern = Pattern.compile("\\b" + textSearch, Pattern.CASE_INSENSITIVE);
             Matcher matcher;
             if (textSearch.length() == 1) {
-                System.out.println("neus text search chi co mot chu cai: " + searchList.size());
                 if (searchList.isEmpty()) {
-                    System.out.println("-.- Dang load tu dau search list.");
                     for (String key : myTranslate.keySet()) {
                         matcher = pattern.matcher(key);
                         if (key.charAt(0)==textSearch.charAt(0) && matcher.find()) {
-                            //System.out.println(key);
                             observableList.add(key);
                             searchList.add(key);
                         }
                     }
                 }
-                System.out.println(">0 kiem tra size cua list khi co 1 chu cai: "+searchList.size());
             } else if (textSearch.length() >= 2) {
-                System.out.println("===Dang tim day, co du hon 2 chu cai roi.");
                 for (String key : searchList) {
                     matcher = pattern.matcher(key);
                     if (key.charAt(0)==textSearch.charAt(0) && matcher.find()) {
-                        //System.out.println(key);
                         observableList.add(key);
                     }
                 }
@@ -296,7 +287,7 @@ public class Main extends Application {
     /**
      * hiển thị toàn bộ danh sách từ điển.
      */
-    public void showAllWords() {
+    public void showAllWords(ActionEvent event) {
         beginListView.setAll(myTranslate.keySet());
         listWord.setItems(beginListView);
     }
@@ -309,7 +300,8 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         insertFromFile();
         initComponents(scene);
-        showAllWords();
+        beginListView.setAll(myTranslate.keySet());
+        listWord.setItems(beginListView);
         primaryStage.show();
         loadWordOnList();
     }

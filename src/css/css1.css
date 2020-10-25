@@ -19,4 +19,7 @@
 }
 #Anchor1{
     -fx-background-color: #080169;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-width: 5px;
 }

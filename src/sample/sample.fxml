@@ -16,9 +16,9 @@
             <Image url="@image/back1.jpg" />
          </image>
       </ImageView>
-      <HBox layoutX="56.0" layoutY="170.0" prefHeight="61.0" prefWidth="446.0">
+      <HBox layoutX="107.0" layoutY="170.0" prefHeight="61.0" prefWidth="381.0">
          <children>
-            <TextField id="TextField1" fx:id="word" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#setOnKey" prefHeight="41.0" prefWidth="369.0" promptText="Search English" style="-fx-background-color: #FFFFFF;" stylesheets="@../css/css1.css">
+            <TextField id="TextField1" fx:id="word" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#setOnKey" prefHeight="41.0" prefWidth="317.0" promptText="Search English" style="-fx-background-color: #FFFFFF;" stylesheets="@../css/css1.css">
                <opaqueInsets>
                   <Insets left="12.0" />
                </opaqueInsets>
@@ -106,5 +106,14 @@
          </graphic>
       </Button>
       <Label id="soundText" fx:id="soundWord" layoutX="489.0" layoutY="264.0" prefHeight="23.0" prefWidth="71.0" stylesheets="@../css/css1.css" text="US/UK" textFill="#b51a1a" />
+      <Button id="ButtonMenu" layoutX="56.0" layoutY="180.0" mnemonicParsing="false" onAction="#showAllWords" prefHeight="41.0" prefWidth="42.0" stylesheets="@../css/css1.css">
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/home.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
